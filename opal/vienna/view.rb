@@ -16,13 +16,14 @@ module Vienna
     attr_accessor :parent
 
     def element
-      return @element if @element
-
-      @element = create_element
-      @element.add_class class_name
-      setup_events
-
-      @element
+      if @__created_element__
+        return @__created_element__
+      else 
+        @element = @__created_element__ = create_element
+        @element.add_class class_name
+        setup_events
+        @element
+      end 
     end
 
     def create_element
