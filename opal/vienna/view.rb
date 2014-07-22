@@ -19,10 +19,11 @@ module Vienna
       if @__created_element__
         return @__created_element__
       else 
-        @element = @__created_element__ = create_element
+        @element = create_element
         @element.add_class class_name
+        @__created_element__ =@element
         setup_events
-        @element
+        @__created_element__ = @element
       end 
     end
 
